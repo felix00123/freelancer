@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\MemberScanner;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -20,5 +21,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('settings/password', Password::class)->name('settings.password');
     Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
 });
+
+// Member Scanner Route
+Route::get('/member-scanner', MemberScanner::class)
+    ->middleware(['auth'])
+    ->name('member.scanner');
 
 require __DIR__.'/auth.php';
